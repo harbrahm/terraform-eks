@@ -1,7 +1,5 @@
+
 # EKS Worker Nodes Resources
-
-
-
 
 
 
@@ -48,7 +46,7 @@ resource "aws_iam_instance_profile" "node" {
 resource "aws_security_group" "node" {
   name        = "${var.cluster-name}-eks-node-sg"
   description = "Security group for all nodes in the cluster"
-  vpc_id      = "${aws_vpc.eks.id}"
+  vpc_id      = "${data.terraform_remote_state.static.vpc_id}"
 
   egress {
     from_port   = 0
@@ -144,7 +142,7 @@ resource "aws_autoscaling_group" "eks" {
   max_size             = "${var.max-size}"
   min_size             = "${var.min-size}"
   name                 = "${var.cluster-name}-eks-asg"
-  vpc_zone_identifier  = ["${aws_subnet.eks.*.id}"]
+  vpc_zone_identifier  = aws_subnet
 
   tag {
     key                 = "Name"
@@ -158,7 +156,5 @@ resource "aws_autoscaling_group" "eks" {
     propagate_at_launch = true
   }
 }
-
-
 
 
