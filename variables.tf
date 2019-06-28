@@ -74,6 +74,6 @@ variable "aws_route_table" {
 
 variable "aws_route_table_association" {
   default     = "rtbassoc-08ed38f552c26b2f2"
-  type        = "route table association"
-  description = "subnet"
+  type        = "string"
+  description = "route table association"
 }
