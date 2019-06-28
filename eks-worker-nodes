@@ -1,11 +1,6 @@
 # EKS Worker Nodes Resources
 
-variable "k8s-version" {}
 
-variable node-instance-type {}
-variable "desired-capacity" {}
-variable "max-size" {}
-variable "min-size" {}
 
 resource "aws_iam_role" "node" {
   name = "${var.cluster-name}-eks-node-role"
@@ -159,3 +154,7 @@ resource "aws_autoscaling_group" "eks" {
     propagate_at_launch = true
   }
 }
+
+
+
+
