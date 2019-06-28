@@ -1,6 +1,14 @@
 # EKS Worker Nodes Resources
 
-# EKS Worker Nodes Resources
+terraform {
+  backend "s3" {
+    bucket  = "terraform-state-remote-storages"
+    region  = "us-east-1"
+    key     = "terraform/dev2/terraform.tfstate"
+    encrypt = true    
+  }
+}
+
 
 data "terraform_remote_state" "static" {
  backend     = "s3"
