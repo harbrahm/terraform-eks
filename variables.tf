@@ -5,6 +5,11 @@ variable "aws_access_key" {}
 variable "aws_secret_key" {}
 
 
+variable "vpc_id" {}  
+variable "aws_subnet" {}
+variable "aws_internet_gateway " {}
+variable "aws_route_table " {}
+variable "aws_route_table_association" {}
 
 
 
