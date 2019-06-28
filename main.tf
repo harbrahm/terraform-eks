@@ -1,5 +1,3 @@
-module "eks" {
-  source             = "./modules/eks"
   cluster-name       = "${var.cluster-name}"
   k8s-version        = "${var.k8s-version}"
   aws-region         = "${var.aws-region}"
@@ -8,4 +6,4 @@ module "eks" {
   max-size           = "${var.max-size}"
   min-size           = "${var.min-size}"
   vpc-subnet-cidr    = "${var.vpc-subnet-cidr}"
-}
+
