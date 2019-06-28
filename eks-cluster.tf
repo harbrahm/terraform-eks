@@ -56,7 +56,7 @@ resource "aws_security_group_rule" "cluster-ingress-node-https" {
   from_port                = 443
   protocol                 = "tcp"
   security_group_id        = "${aws_security_group.cluster.id}"
-  source_security_group_id = "${aws_security_group.node.id}"
+  source_security_group_id = "${aws_security_group.cluster.id}"
   to_port                  = 443
   type                     = "ingress"
 }
