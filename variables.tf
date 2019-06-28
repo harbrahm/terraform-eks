@@ -1,12 +1,15 @@
+
+
 # Variables Configuration
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
 
-varaible "vpc_id" {}  
-varaible "aws_subnet" {}
+variable "vpc_id" {}  
+variable "aws_subnet" {}
 variable "aws_internet_gateway " {}
-varaiable "aws_route_table " {}
-varaiable "aws_route_table_association" {}
+variable "aws_route_table " {}
+variable "aws_route_table_association" {}
+
 
 
 
