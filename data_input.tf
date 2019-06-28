@@ -13,7 +13,7 @@ data "terraform_remote_state" "static" {
  aws_subnet  = "${data.terraform_remote_state.static.aws_subnet}"
  aws_internet_gateway  = "${data.terraform_remote_state.static.aws_internet_gateway}"
  aws_route_table  = "${data.terraform_remote_state.static.aws_route_table}"
- aws_route_table_association  = "${data.terraform_remote_state.static.aws_route_table_association}"
+ aws_route_table_associatiosn  = "${data.terraform_remote_state.static.aws_route_table_association}"
 
 
 
