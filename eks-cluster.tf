@@ -77,7 +77,7 @@ resource "aws_eks_cluster" "eks" {
 
   vpc_config {
     security_group_ids = ["${aws_security_group.cluster.id}"]
-    subnet_ids         = "${data.terraform_remote_state.static.aws_subnet}"
+    subnet_ids         = ["${data.terraform_remote_state.static.aws_subnet1},${data.terraform_remote_state.static.aws_subnet2},${data.terraform_remote_state.static.aws_subnet3},${data.terraform_remote_state.static.aws_subnet4}"]
   }
 
   depends_on = [
