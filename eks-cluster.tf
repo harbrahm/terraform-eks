@@ -1,14 +1,12 @@
 # EKS Cluster Resources
-locals {
-  environment = "${terraform.workspace}"
-}
+
 
 data "terraform_remote_state" "static" {
  backend     = "s3"
  
  config {
    bucket = "terraform-state-remote-storages"
-   key    = "${local.environment}/terraform/dev"
+   key    = "${terraform.workspace}/terraform/dev"
    region = "us-east-1"
  }
    
