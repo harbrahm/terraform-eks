@@ -68,4 +68,7 @@ data "terraform_remote_state" "static" {
    key    = "terraform/dev"
    region = "us-east-1"
  }
+   defaults = {
+   vpc_ip = ""
+  }
 }
