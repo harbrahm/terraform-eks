@@ -37,7 +37,7 @@ resource "aws_iam_role_policy_attachment" "cluster-AmazonEKSServicePolicy" {
 resource "aws_security_group" "cluster" {
   name        = "${var.cluster-name}-eks-cluster-sg"
   description = "Cluster communication with worker nodes"
-  vpc_id      = "${data.terraform_remote_state.static.output.vpc_id}"
+  vpc_id      = "${data.terraform_remote_state.static.vpc_id}"
 
   egress {
     from_port   = 0
