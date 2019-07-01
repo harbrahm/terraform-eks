@@ -4,13 +4,6 @@
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
 
-
-
-
-
-
-
-
 variable "cluster-name" {
   default     = "DOTS_cluster"
   type        = "string"
