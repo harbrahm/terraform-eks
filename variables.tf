@@ -60,15 +60,4 @@ variable "min-size" {
 }
 
 
-data "terraform_remote_state" "static" {
- backend     = "s3"
 
- config {
-   bucket = "terraform-state-remote-storages"
-   key    = "terraform/dev"
-   region = "us-east-1"
- }
-   defaults = {
-   vpc_ip = ""
-  }
-}
