@@ -10,15 +10,13 @@ terraform {
   }
 }
 
-locals {
-  environment = "${terraform.workspace}"
-}
 
 data "terraform_remote_state" "static" {
  backend     = "s3"
+  workspace = "${terraform.workspace}"
  config {
    bucket = "terraform-state-remote-storages"
-   key    = "${locals.environment}/terraform/dev/terraform.tfstate"
+   key    = "terraform/dev/terraform.tfstate"
    region = "us-east-1"
    workspace_key_prefix = ""
 
