@@ -107,7 +107,7 @@ echo "${aws_eks_cluster.eks.certificate_authority.0.data}" | base64 -d >  $CA_CE
 INTERNAL_IP=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
 sed -i s,MASTER_ENDPOINT,${aws_eks_cluster.eks.endpoint},g /var/lib/kubelet/kubeconfig
 sed -i s,CLUSTER_NAME,${var.cluster-name},g /var/lib/kubelet/kubeconfig
-sed -i s,REGION,${data.aws_region.current.name},g /etc/systemd/system/kubelet.service
+sed -i s,REGION,${var.aws_region},g /etc/systemd/system/kubelet.service
 sed -i s,MAX_PODS,20,g /etc/systemd/system/kubelet.service
 sed -i s,MASTER_ENDPOINT,${aws_eks_cluster.eks.endpoint},g /etc/systemd/system/kubelet.service
 sed -i s,INTERNAL_IP,$INTERNAL_IP,g /etc/systemd/system/kubelet.service
