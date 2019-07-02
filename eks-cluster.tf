@@ -12,14 +12,17 @@ terraform {
 
 data "terraform_remote_state" "static" {
  backend     = "s3"
- 
+ workspace = terraform.workspace
  config {
    bucket = "terraform-state-remote-storages"
    key    = "${terraform.workspace}/terraform/dev/terraform.tfstate"
    region = "us-east-1"
-  	workspace_key_prefix = ""
+   workspace_key_prefix = ""
 
  }
+   defaults = {
+    vpc_ip = ""
+  }
    
   }
 
