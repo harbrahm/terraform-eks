@@ -1,13 +1,24 @@
 # EKS Cluster Resources
 
+terraform {
+  backend "s3" {
+    bucket  = "terraform-state-remote-storages"
+    region  = "us-east-1"
+    key     = "terraform/dev/terraformeks.tfstate"
+    encrypt = true    
+    workspace_key_prefix = ""
+  }
+}
 
 data "terraform_remote_state" "static" {
  backend     = "s3"
  
  config {
    bucket = "terraform-state-remote-storages"
-   key    = "${terraform.workspace}/terraform/dev"
+   key    = "${terraform.workspace}/terraform/dev/terraform.tfstate"
    region = "us-east-1"
+  	workspace_key_prefix = ""
+
  }
    
   }
