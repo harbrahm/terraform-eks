@@ -141,7 +141,7 @@ resource "aws_autoscaling_group" "eks" {
   max_size             = "${var.max-size}"
   min_size             = "${var.min-size}"
   name                 = "${var.cluster-name}-eks-asg"
-  vpc_zone_identifier  = ["${data.terraform_remote_state.static.aws_subnet1},${data.terraform_remote_state.static.aws_subnet2},${data.terraform_remote_state.static.aws_subnet3},${data.terraform_remote_state.static.aws_subnet4}"]
+  vpc_zone_identifier  = ["${data.terraform_remote_state.static.aws_subnet1}","${data.terraform_remote_state.static.aws_subnet2}"]
 
   tag {
     key                 = "Name"
