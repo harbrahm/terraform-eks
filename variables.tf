@@ -10,11 +10,6 @@ variable "cluster-name" {
   description = "The name of EKS Cluster"
 }
 
-variable "aws_region" {
-  default     = "us-east-1"
-  type        = "string"
-  description = "The AWS Region to deploy EKS"
-}
 
 variable "k8s-version" {
   default     = "1.11"
@@ -22,11 +17,6 @@ variable "k8s-version" {
   description = "K8s version"
 }
 
-variable "vpc-subnet-cidr" {
-  default     = "10.0.0.0/16"
-  type        = "string"
-  description = "The VPC Subnet CIDR"
-}
 
 variable "node-instance-type" {
   default     = "t2.micro"
