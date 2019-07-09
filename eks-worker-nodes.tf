@@ -124,7 +124,8 @@ USERDATA
 
 resource "aws_autoscaling_policy" "eks" {
   name                   = "${var.cluster-name}-eks-asp"
-  adjustment_type        = "TargetTrackingScaling"
+  adjustment_type        = "ChangeInCapacity"
+  policy_type            = "TargetTrackingScaling"
   autoscaling_group_name = "${aws_autoscaling_group.eks.name}"
   
   target_tracking_configuration {
