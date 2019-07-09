@@ -121,14 +121,20 @@ systemctl restart kubelet
 USERDATA
 }
 
+
 resource "aws_autoscaling_policy" "eks" {
   name                   = "${var.cluster-name}-eks-asp"
-  scaling_adjustment     = 4
-  adjustment_type        = "ChangeInCapacity"
-  cooldown               = 300
+  adjustment_type        = "TargetTrackingScaling"
   autoscaling_group_name = "${aws_autoscaling_group.eks.name}"
-}
+  
+  target_tracking_configuration {
+  predefined_metric_specification {
+    predefined_metric_type = "ASGAverageCPUUtilization"
+  }
 
+  target_value = 40.0
+}
+}
 
 resource "aws_launch_configuration" "eks" {
   associate_public_ip_address = true
