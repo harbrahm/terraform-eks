@@ -121,7 +121,7 @@ systemctl restart kubelet
 USERDATA
 }
 
-resource "aws_autoscaling_policy" eks" {
+resource "aws_autoscaling_policy" "eks" {
   name                   = "${var.cluster-name}-eks-asp"
   scaling_adjustment     = 4
   adjustment_type        = "ChangeInCapacity"
