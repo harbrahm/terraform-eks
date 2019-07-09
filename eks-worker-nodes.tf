@@ -121,6 +121,15 @@ systemctl restart kubelet
 USERDATA
 }
 
+resource "aws_autoscaling_policy" eks" {
+  name                   = "${var.cluster-name}-eks-asp"
+  scaling_adjustment     = 4
+  adjustment_type        = "ChangeInCapacity"
+  cooldown               = 300
+  autoscaling_group_name = "${aws_autoscaling_group.eks.name}"
+}
+
+
 resource "aws_launch_configuration" "eks" {
   associate_public_ip_address = true
   iam_instance_profile        = "${aws_iam_instance_profile.node.name}"
