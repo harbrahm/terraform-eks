@@ -52,5 +52,8 @@ variable "min-size" {
   description = "Autoscaling Minimum node capacity"
 }
 
-
+variable "key_name" {
+ description = "Key name for SSHing into EC2"
+ default = "jenkins"
+}
 
