@@ -133,9 +133,10 @@ resource "aws_autoscaling_policy" "eks" {
     predefined_metric_type = "ASGAverageCPUUtilization"
   }
 
-  target_value = 40.0
+  target_value = 10
 }
 }
+
 
 resource "aws_launch_configuration" "eks" {
   associate_public_ip_address = true
